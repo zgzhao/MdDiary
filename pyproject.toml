@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling", "wheel"]
+build-backend = "hatchling.build"
+
+[project]
+name = "markdown_diary"
+version = "1.0.0"
+description = "Markdown Diary"
+authors = [
+    { name = "Zhiguang Zhao", email = "zgzhao@lzu.edu.cn" },
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "PyQt5>=5.15.0",
+    "PyQtWebEngine",
+    "markdown",
+    "markdown_extensions",
+]
+
+
+[tool.hatch.build.targets.wheel]
+packages = ["mdiary"]  ## 源码所在目录
+artifacts = [
+    "assets/**/*",
+]
+
+[project.scripts]
+mdiary= "mdiary.cli:main"
